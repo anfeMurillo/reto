@@ -34,6 +34,7 @@ create table restaurant_staff (
     "restaurant_id" int,
     "user_id" int
 
+    primary key (restaurant_id,user_id)
     foreign key (restaurant_id) references restaurants(restaurant_id)
     foreign key (user_id) references restaurants(user_id)
 )
