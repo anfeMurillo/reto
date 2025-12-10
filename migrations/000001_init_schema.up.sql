@@ -30,6 +30,14 @@ create table restaurants (
     "is_open" bool default false not null
 );
 
+create table restaurant_staff (
+    "restaurant_id" int,
+    "user_id" int
+
+    foreign key (restaurant_id) references restaurants(restaurant_id)
+    foreign key (user_id) references restaurants(user_id)
+)
+
 -- MENU E INVENTARIO --
 
 create type "measure_unit" as enum (
