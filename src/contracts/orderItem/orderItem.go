@@ -12,7 +12,7 @@ type Repository interface {
 
 	GetAllByOrder(ctx context.Context, orderId int) ([]orderitem.OrderItem, error)
 
-	Delete(ctx context.Context, oItemId int)
+	Delete(ctx context.Context, oItemId int) error
 
-	UpdateQuantity(ctx context.Context, oItemId int, quantity int)
+	UpdateQuantity(ctx context.Context, oItemId int, quantity int) error
 }

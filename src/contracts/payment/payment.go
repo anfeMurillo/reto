@@ -1,16 +1,17 @@
 package payment
 
 import (
+	"context"
 	paymentstatus "e-restaurant/models/enums/paymentStatus"
 	"e-restaurant/models/payment"
 )
 
 type Repository interface {
-	Create(payment.Payment)
+	Create(ctx context.Context, payment *payment.Payment) (*payment.Payment, error)
 
-	GetById(paymentId int)
+	GetById(ctx context.Context, paymentId int) (*payment.Payment, error)
 
-	UpdateStatus(paymentId int, status paymentstatus.PaymentStatus)
+	UpdateStatus(ctx context.Context, paymentId int, status paymentstatus.PaymentStatus) error
 
-	UpdateMethod(paymentId int, method paymentstatus.PaymentMethod)
+	UpdateMethod(ctx context.Context, paymentId int, method paymentstatus.PaymentMethod) error
 }
